@@ -1,7 +1,7 @@
 <template xlang="wxml" minapp="mpvue">
 	<view class="_qrCode">
 		<canvas class="_qrCodeCanvas" id="_myQrCodeCanvas" canvas-id="_myQrCodeCanvas" :style="{width:cpSize+'px',height:cpSize+'px'}" />
-		<image v-show="show" :src="result" :style="{width:cpSize+'px',height:cpSize+'px'}" />
+		<!-- <image v-show="show" :src="result" :style="{width:cpSize+'px',height:cpSize+'px'}" /> -->
 	</view>
 </template>
 
@@ -191,10 +191,10 @@ export default {
 ._qrCode {
   position: relative;
 }
-._qrCodeCanvas {
+/* ._qrCodeCanvas {
   position: fixed;
   top: -99999upx;
   left: -99999upx;
   z-index: -99999;
-}
+} */
 </style>

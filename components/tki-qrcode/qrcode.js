@@ -1137,41 +1137,46 @@ let QRCode = {};
                     }
                 }
             }
-            setTimeout(() => {
-                ctx.draw(true, () => {
-                    // 保存到临时区域
-                    setTimeout(() => {
-                        uni.canvasToTempFilePath({
-                            width: options.width,
-                            height: options.height,
-                            destWidth: options.width,
-                            destHeight: options.height,
-                            canvasId: options.canvasId,
-                            quality: Number(1),
-                            success: function (res) {
-                                if (options.cbResult) {
-                                    // 由于官方还没有统一此接口的输出字段，所以先判定下  支付宝为 res.apFilePath
-                                    if (!empty(res.tempFilePath)) {
-                                        options.cbResult(res.tempFilePath)
-                                    } else if (!empty(res.apFilePath)) {
-                                        options.cbResult(res.apFilePath)
-                                    } else {
-                                        options.cbResult(res.tempFilePath)
-                                    }
-                                }
-                            },
-                            fail: function (res) {
-                                if (options.cbResult) {
-                                    options.cbResult(res)
-                                }
-                            },
-                            complete: function () {
-                                uni.hideLoading();
-                            },
-                        }, options.context);
-                    }, options.text.length + 100);
-                });
-            }, options.usingComponents ? 0 : 150);
+			setTimeout(() => {
+				ctx.draw(false, () => {
+					uni.hideLoading();
+				});
+			}, options.text.length + 100);
+            // setTimeout(() => {
+            //     ctx.draw(true, () => {
+            //         // 保存到临时区域
+            //         setTimeout(() => {
+            //             uni.canvasToTempFilePath({
+            //                 width: options.width,
+            //                 height: options.height,
+            //                 destWidth: options.width,
+            //                 destHeight: options.height,
+            //                 canvasId: options.canvasId,
+            //                 quality: Number(1),
+            //                 success: function (res) {
+            //                     if (options.cbResult) {
+            //                         // 由于官方还没有统一此接口的输出字段，所以先判定下  支付宝为 res.apFilePath
+            //                         if (!empty(res.tempFilePath)) {
+            //                             options.cbResult(res.tempFilePath)
+            //                         } else if (!empty(res.apFilePath)) {
+            //                             options.cbResult(res.apFilePath)
+            //                         } else {
+            //                             options.cbResult(res.tempFilePath)
+            //                         }
+            //                     }
+            //                 },
+            //                 fail: function (res) {
+            //                     if (options.cbResult) {
+            //                         options.cbResult(res)
+            //                     }
+            //                 },
+            //                 complete: function () {
+            //                     uni.hideLoading();
+            //                 },
+            //             }, options.context);
+            //         }, options.text.length + 100);
+            //     });
+            // }, options.usingComponents ? 0 : 150);
         }
         createCanvas(this.options);
         // 空判定

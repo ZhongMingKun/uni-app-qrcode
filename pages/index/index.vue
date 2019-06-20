@@ -32,12 +32,12 @@ export default {
 	data() {
 		return {
 			ifShow: true,
-			val: '二维码', // 要生成的二维码值
+			val: 'http://h5.codefray.com/n/868575022506515', // 要生成的二维码值
 			size: 200, // 二维码大小
-			unit: 'upx', // 单位
-			background: '#b4e9e2', // 背景色
-			foreground: '#309286', // 前景色
-			pdground: '#32dbc6', // 角标色
+			unit: 'px', // 单位
+			background: '#ffffff', // 背景色
+			foreground: '#000000', // 前景色
+			pdground: '#000000', // 角标色
 			icon: '', // 二维码图标
 			iconsize: 40, // 二维码图标大小
 			lv: 3, // 二维码容错级别 ， 一般不用设置，默认就行
